@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Kinyarwanda Text Generation Demo</h1>
+<form method="post">
+    <label for="prompt">Enter a prompt:</label>
+    <textarea id="prompt" name="prompt" required>{{ prompt or '' }}</textarea>
+    <button type="submit">Generate Text</button>
+</form>
+{% if generated_text %}
+<div>
+    <h2>Generated Text:</h2>
+    <pre>{{ generated_text }}</pre>
+</div>
+{% elif error %}
+<div>
+    <p>Error: {{ error }}</p>
+</div>
+{% endif %}
+{% endblock %}
